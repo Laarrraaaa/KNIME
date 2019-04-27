@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knimeNode icon="./semanticweb.png" type="Source"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.10 http://knime.org/node/v2.10.xsd">
+	<name>Write To File</name>
+
+	<shortDescription>
+		Writes triples of a graph into a file using "Turtle" language.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			This node writes all triples stored in the given graph into a
+			file.
+			If option "Graph name" is empty, the default graph is used.
+			Please notice that there are a few endpoints
+			which doesn't permit the
+			usage of non-named graphs.
+		</intro>
+
+		<option name="Selected File">Name of file
+		</option>
+		<option name="Graph name">Name of graph containing triples
+		</option>
+
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Semantic Web Connection"> Semantic Web connection</inPort>
+	</ports>
+
+</knimeNode>

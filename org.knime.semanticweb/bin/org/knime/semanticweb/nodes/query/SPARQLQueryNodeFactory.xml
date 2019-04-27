@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode type="Source" icon="./semanticweb.png">
+	<name>SPARQL Select Query</name>
+
+	<shortDescription>
+		This node performs a SPARQL "SELECT" query which
+		results are written into
+		a data table.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			This node can be connected with several Semantic Web endpoints to
+			perform SELECT queries on given data. Please notice that based on the
+			connected
+			endpoint, equal data and queries may lead to different results.
+			For instance, the following SELECT query
+
+			<table>
+				<tr>
+					<td>SELECT * WHERE {?s ?p ?o}</td>
+				</tr>
+			</table>
+
+			queried all triples in default graph, if an <i>In-Memory Endpoint</i> is
+			connected. A Virtuoso database (by <i>Virtuoso Endpoint</i>) will give all
+			triples existing in database.
+
+			<br />
+
+			To query specific graphs, e.g. graphs named a and b, the 
+			query with an <i>In-Memory Endpoint</i> is
+
+			<table>
+				<tr>
+					<td>SELECT * WHERE { { GRAPH &#60;a&#62; { ?s ?p ?o } } UNION {
+						GRAPH &#60;b&#62; { ?s ?p ?o } } }</td>
+				</tr>
+			</table>
+
+			But with a Virtuoso database it is
+
+			<br />
+
+			<table>
+				<tr>
+					<td>SELECT * FROM NAMED &#60;a&#62; FROM NAMED &#60;b&#62; WHERE
+						{
+						GRAPH ?graph { ?s ?p ?o } }</td>
+				</tr>
+			</table>
+
+
+			<br />
+
+
+
+
+		</intro>
+
+		<option name="SPARQL SELECT Query">The SPARQL query. Only SELECT queries are
+			permitted
+		</option>
+		<option name="Timeout">Timeout for query execution</option>
+
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Semantic Web Connection"> Semantic Web connection</inPort>
+		<outPort index="0" name="Query Result Table"> Buffered Data Table containing query
+			results
+		</outPort>
+	</ports>
+
+</knimeNode>

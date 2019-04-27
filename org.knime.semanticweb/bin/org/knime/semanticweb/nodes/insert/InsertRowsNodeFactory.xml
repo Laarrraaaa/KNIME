@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode type="Sink" icon="./semanticweb.png">
+	<name>SPARQL Insert</name>
+
+	<shortDescription>
+		This node inserts Semantic Web triples in a SPARQL
+		endpoint.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			This node inserts Semantic Web triples in an endpoint. A triple
+			consists of subject, predicate, object, which are represented with
+			URIs.
+			For more information about valid URIs, please visit
+			<a href="http://semanticweb.org/wiki/Uniform_Resource_Identifier.html">URI</a>
+			.
+			Setting subject, predicate, object is mandatory.
+
+
+			<br />
+			<br />
+
+			The usage of option "Graph name" and "Global graph name":
+
+			<table>
+				<tr>
+					<td>Graph name</td>
+					<td>Graph name cell</td>
+					<td>Global Graph name</td>
+					<td>Used</td>
+				</tr>
+				<tr>
+					<td>selected</td>
+					<td>not missing </td>
+					<td>don't care </td>
+					<td>Graph name cell</td>
+				</tr>
+				<tr>
+					<td>selected</td>
+					<td>missing </td>
+					<td>not empty </td>
+					<td>Global Graph name</td>
+				</tr>
+				<tr>
+					<td>selected</td>
+					<td>missing </td>
+					<td>empty</td>
+					<td>Default graph</td>
+				</tr>
+				<tr>
+					<td>not selected</td>
+					<td>don't care </td>
+					<td>not empty</td>
+					<td>Global graph name</td>
+				</tr>
+				<tr>
+					<td>not selected</td>
+					<td>don't care </td>
+					<td>empty</td>
+					<td>Default graph</td>
+				</tr>
+			</table>
+
+			Attention: It depends on connected Semantic Web endpoint whether using default
+			graph is
+			permitted.
+
+		</intro>
+
+		<option name="Subject">Column containing subjects of triples</option>
+		<option name="Predicate">Column containing predicates of triples</option>
+		<option name="Object">Column containing objects of triples</option>
+		<option name="Graph name">Column containing names of graphs in which the
+			triples has to be stored
+		</option>
+		<option name="Global URI">If subject, predicate, object or graph name is not displayed
+			with a valid URI, this URI will be used as prefix
+		</option>
+		<option name="Global graph name">Graph name used for all input triples</option>
+
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Semantic Web Connection">Semantic Web connection
+		</inPort>
+		<inPort index="1" name="Buffered Data Table">Table containing triples and graph names
+		</inPort>
+		<outPort index="0" name="Semantic Web Connection">Semantic Web connection
+		</outPort>
+	</ports>
+
+</knimeNode>

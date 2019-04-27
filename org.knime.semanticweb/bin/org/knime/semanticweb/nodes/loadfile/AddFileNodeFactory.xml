@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<knimeNode icon="./semanticweb.png" type="Source"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.8 http://knime.org/node/v2.8.xsd">
+	<name>Load From File</name>
+	<shortDescription>
+		This node writes triples stored in a file into a Data Table.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			This node writes triples stored in a file into a Data Table. Please check
+			<a href="https://jena.apache.org/documentation/io/#command-line-tools">Jena Documentation</a>
+			for valid file names.
+
+		</intro>
+
+		<option name="Selected File">Name of file containing triples
+		</option>
+
+	</fullDescription>
+
+	<ports>
+
+		<outPort index="0" name="Triples"> Buffered Data Table containing
+			triples
+		</outPort>
+
+	</ports>
+</knimeNode>

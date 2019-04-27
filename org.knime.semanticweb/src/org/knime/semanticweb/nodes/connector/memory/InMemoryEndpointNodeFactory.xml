@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<knimeNode icon="./semanticweb.png" type="Source"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.8 http://knime.org/node/v2.8.xsd">
+	<name>In-Memory Endpoint</name>
+	<shortDescription>This node provides an in-memory Semantic Web database.</shortDescription>
+	<fullDescription>
+		<intro>
+			This node provides an in-memory Semantic Web database. It supports
+			default and named graphs and works with all offered Semantic Web
+			nodes.
+		</intro>
+	</fullDescription>
+	<ports>
+		<outPort index="0" name="Semantic Web Connection"> Connection to this endpoint.
+		</outPort>
+	</ports>
+</knimeNode>

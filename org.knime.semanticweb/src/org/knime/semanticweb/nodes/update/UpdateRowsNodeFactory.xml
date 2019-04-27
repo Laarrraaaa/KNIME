@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode type="Sink" icon="./semanticweb.png">
+	<name>SPARQL Update</name>
+
+	<shortDescription>
+		This node updates Semantic Web triples in an
+		endpoint.
+	</shortDescription>
+
+
+	<fullDescription>
+		<intro>
+			This node updates triples in a Semantic Web endpoint based on the
+			triples from
+			the input table. It is mandatory to choose a column for
+			"Update value".
+
+			<br />
+			<br />
+
+			Additionally, you have to select further columns for subject,
+			predicate and object.
+
+			If all triple columns are selected (i.e.
+			subject, predicate, object),
+			the table is read out row-wise.
+			It is
+			possible to leave out subject,
+			predicate, object cells empty; but
+			at
+			least one of these cells has to
+			be non-empty.
+
+			<br />
+
+			Always the least significant
+			element is updated with the entry in
+			column "Update value". For instance, the following
+			inputs are
+			permitted:
+
+			<table>
+				<tr>
+					<td>Subject</td>
+					<td>Predicate</td>
+					<td>Object</td>
+					<td>Update value</td>
+					<td>Which element is updated?</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td> </td>
+					<td> </td>
+					<td>Martin</td>
+					<td>Subject</td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td>Country</td>
+					<td> </td>
+					<td>Home</td>
+					<td>Predicate</td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td> </td>
+					<td>Germany</td>
+					<td>Austria</td>
+					<td>Object</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country</td>
+					<td> </td>
+					<td>Home</td>
+					<td>Predicate</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country</td>
+					<td>Germany</td>
+					<td>Austria</td>
+					<td>Object</td>
+				</tr>
+			</table>
+
+
+
+			<br />
+			<br />
+
+			If only one or two of the triple columns are picked, only these
+			selected
+			columns will be read-out. For instance, if you desire to
+			update an object in a specific triple like
+
+			<table>
+				<tr>
+					<td>Subject</td>
+					<td>Predicate</td>
+					<td>Object</td>
+					<td>Update value</td>
+					<td>Which element is updated?</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country</td>
+					<td>Germany</td>
+					<td>Austria</td>
+					<td>Object</td>
+				</tr>
+			</table>
+
+			but only subject and predicate column are chosen,
+			the update query
+			will be interpreted as
+
+			<table>
+				<tr>
+					<td>Subject</td>
+					<td>Predicate</td>
+					<td>Object</td>
+					<td>Update value</td>
+					<td>Which element is updated?</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country </td>
+					<td> </td>
+					<td>Austria</td>
+					<td>Predicate</td>
+				</tr>
+			</table>
+
+			This may yield wrong results.
+
+			<br />
+			<br />
+
+		</intro>
+
+		<option name="Subject">Column containing subjects of triples</option>
+		<option name="Predicate">Column containing predicates of triples</option>
+		<option name="Object">Column containing objects of triples</option>
+		<option name="Update value">Column containing update values</option>
+		<option name="Graph name">Column containing names of graphs in which the
+			triples has to be stored
+		</option>
+		<option name="Global URI">If subject, predicate, object or graph name is not displayed
+			with a valid URI, this URI will be used as prefix
+		</option>
+		<option name="Global graph name">Graph name used for all input triples</option>
+
+
+
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Semantic Web Connection">Semantic Web connection</inPort>
+		<inPort index="1" name="Buffered Data Table">Table containing triples for updating
+			and graph names
+		</inPort>
+		<outPort index="0" name="Semantic Web Connection">Semantic Web connection</outPort>
+	</ports>
+
+</knimeNode>

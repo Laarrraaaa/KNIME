@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<knimeNode icon="./semanticweb.png" type="Source"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.8 http://knime.org/node/v2.8.xsd">
+	<name>List Named Graphs</name>
+	<shortDescription>
+		Node collects name of graphs contained in Semantic Web Endpoint.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+
+		</intro>
+
+	</fullDescription>
+
+	<ports>
+
+		<outPort index="0" name="Name of Graphs"> Buffered Data Table containing
+			name of graphs
+		</outPort>
+
+	</ports>
+</knimeNode>

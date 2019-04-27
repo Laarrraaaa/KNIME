@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode type="Sink" icon="./semanticweb.png">
+	<name>SPARQL Delete</name>
+
+	<shortDescription>
+		Deletes triples in a Semantic Web endpoint based on
+		the triples from the
+		input table.
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+			Deletes triples in a Semantic Web endpoint based on the triples from
+			the input table. The triples in table has to match the triples in
+			endpoint exactly.
+
+			<br />
+			<br />
+
+			If all triple columns are selected (i.e. subject, predicate, object),
+			the table is read out row-wise.
+			It is possible to leave out subject,
+			predicate, object cells empty; but
+			at least one cell as to be
+			non-empty. For instance, the following
+			entries for triples are
+			possible:
+
+			<table>
+				<tr>
+					<td>Subject</td>
+					<td>Predicate</td>
+					<td>Object</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td> </td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td> </td>
+					<td>Germany</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country</td>
+					<td>Germany</td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td>Country</td>
+					<td>Germany</td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td>Country</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td> </td>
+					<td>Germany</td>
+				</tr>
+			</table>
+
+
+			<br />
+			<br />
+
+
+			If one or two of the triple columns are selected, only the selected
+			columns will be read-out. For instance, if the input table is like
+
+			<table>
+				<tr>
+					<td>Subject</td>
+					<td>Predicate</td>
+					<td>Object</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td>Country</td>
+					<td>Germany</td>
+				</tr>
+			</table>
+
+			but only subject and object column is selected, the triple will be
+			interpreted as
+
+			<table>
+				<tr>
+					<td>Subject</td>
+					<td>Predicate</td>
+					<td>Object</td>
+				</tr>
+				<tr>
+					<td>Peter</td>
+					<td> </td>
+					<td>Germany</td>
+				</tr>
+			</table>
+
+			<br />
+			<br />
+
+			If only "graph name" column is selected,
+			corresponding graph including
+			stored triples, will be deleted.
+
+			Attention: If all triples in a graph
+			are deleted, the graph can
+			already exists
+			(depends on connected
+			endpoint). To be sure that a
+			graph is
+			completely deleted,
+			it has to be
+			delete by selecting only
+			"Graph name" column.
+
+			<br />
+			<br />
+
+			Please see node description of Semantic Web node "SPARQL Insert" for
+			usage of options "Graph name" and "Global Graph name".
+
+
+		</intro>
+
+		<option name="Subject">Column containing subjects of triples</option>
+		<option name="Predicate">Column containing predicates of triples</option>
+		<option name="Object">Column containing objects of triples</option>
+		<option name="Graph name">Column containing names of graphs in which the
+			triples has to be stored
+		</option>
+		<option name="Global URI">If subject, predicate, object or graph name is not displayed
+			with a valid URI, this URI will be used as prefix
+		</option>
+		<option name="Global graph name">Graph name used for all input triples</option>
+
+
+
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Semantic Web Connection">Semantic Web connection</inPort>
+		<inPort index="1" name="Buffered Data Table">Table containing triples and graph names
+		</inPort>
+		<outPort index="0" name="Semantic Web Connection">Semantic Web connection</outPort>
+	</ports>
+
+</knimeNode>
+
+
+
+    
+   

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<knimeNode icon="./semanticweb.png" type="Source"
+	xmlns="http://knime.org/node/v2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://knime.org/node/v2.8 http://knime.org/node/v2.8.xsd">
+	<name>Virtuoso Endpoint</name>
+	<shortDescription>Creates a connection to a Virtuoso endpoint.</shortDescription>
+
+	<fullDescription>
+		<intro>
+
+			This node establishes a connection to a Virtuoso endpoint, which can
+			reached with or without authentication.
+
+		</intro>
+		<option name="Endpoint">URI to Virtuoso endpoint</option>
+		<option name="Authentication is required">Select if endpoint requires authentication</option>
+		<option name="User">Name of user to access endpoint. Leave this field empty, if endpoint does not require authentication.</option>
+		<option name="Password">Password to access endpoint. Leave this field empty, if endpoint does not require authentication.</option>
+	</fullDescription>
+	<ports>
+		<outPort index="0" name="Semantic Web Connection"> Connection to this endpoint.
+		</outPort>
+	</ports>
+</knimeNode>
